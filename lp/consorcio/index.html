@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador — Consórcio | NS Financeira</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="../../styles/styles.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col lp-consorcio">
+  <header class="w-full bg-[#221c11]/90 text-white py-4 px-6">
+    <div class="max-w-[960px] mx-auto flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <img src="../../assets/ns-logo.png" alt="NS Financeira" class="h-8 w-auto" />
+        <span class="text-white font-bold">NS Financeira</span>
+      </a>
+      <a href="../../index.html" class="text-[#c9b792] hover:text-primary">Voltar ao site</a>
+    </div>
+  </header>
+
+  <main class="flex-1 p-6 flex justify-center items-start">
+    <div class="sim-card w-full bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 sm:p-8 border border-[#675532]">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Simulador de Consórcio</h1>
+      <p class="text-[#c9b792] mb-6">Simulação funcional inspirada no modelo do Safra, adaptada para NS Financeira. Valores estimados.</p>
+
+      <form id="form" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <label class="flex flex-col text-white">
+          Valor do bem / cota
+          <input id="valor" type="number" step="0.01" min="0" value="50000" class="mt-1 p-2 rounded border border-[#675532] bg-[#2a2416] text-white" />
+        </label>
+        <label class="flex flex-col text-white">
+          Prazo (meses)
+          <input id="prazo" type="number" min="1" value="60" class="mt-1 p-2 rounded border border-[#675532] bg-[#2a2416] text-white" />
+        </label>
+        <label class="flex flex-col text-white">
+          Taxa administrativa (% sobre o valor)
+          <input id="taxa" type="number" step="0.01" min="0" value="10" class="mt-1 p-2 rounded border border-[#675532] bg-[#2a2416] text-white" />
+        </label>
+        <label class="flex flex-col text-white">
+          Lance (opcional)
+          <input id="lance" type="number" step="0.01" min="0" value="0" class="mt-1 p-2 rounded border border-[#675532] bg-[#2a2416] text-white" />
+        </label>
+      </form>
+
+      <div class="flex gap-3 mb-6">
+        <button id="calc" class="bg-primary text-[#fff] font-bold px-4 py-2 rounded hover:opacity-90">Calcular</button>
+        <button id="clear" class="bg-transparent border border-[#675532] text-[#c9b792] px-4 py-2 rounded">Limpar</button>
+        <button id="whats" class="ml-auto bg-[#eca413] text-white px-4 py-2 rounded font-bold" title="Enviar resultado por WhatsApp">Enviar por WhatsApp</button>
+      </div>
+
+      <section id="resultados" class="text-white">
+        <div id="summary" class="space-y-2">
+          <p>Parcela estimada: <strong id="parcela">—</strong></p>
+          <p>Total (valor + taxa): <strong id="total">—</strong></p>
+          <p>Saldo após lance (se aplicável): <strong id="saldo">—</strong></p>
+        </div>
+      </section>
+
+      <details class="mt-6 text-[#c9b792]">
+        <summary class="cursor-pointer">Observações</summary>
+        <div class="mt-3">Consórcio é um produto de formação de poupança com administração e contemplações. Esta simulação é apenas uma estimativa, sujeita a análise.</div>
+      </details>
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-[#675532]">© 2025 NS Financeira</footer>
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

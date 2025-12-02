@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nicholas Souza Financeira - Soluções Financeiras</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#eca413",
+              "background-light": "#f8f7f6",
+              "background-dark": "#221c10",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- material symbols and small layout helpers moved to styles/styles.css -->
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-[#221c11] dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex justify-center sticky top-0 z-50 bg-[#221c11]/80 backdrop-blur-md">
+<div class="layout-content-container flex flex-col w-full max-w-[960px]">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#483c23] px-4 sm:px-10 py-3">
+  <div class="flex items-center gap-6 text-white">
+  <a href="#inicio" class="flex items-center" aria-label="Ir para início">
+    <img src="assets/ns-logo.png" alt="NS Financeira" class="h-8 w-auto" width="160" height="32" loading="lazy" />
+    <span class="sr-only">NS Financeira</span>
+  </a>
+  </div>
+<div class="hidden lg:flex flex-1 justify-end gap-8 lg:pl-6">
+<div class="flex items-center gap-12">
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#inicio">INÍCIO</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#especialidades">NOSSAS ESPECIALIDADES</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#servicos">SERVIÇOS</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#contato">CONTATO</a>
+</div>
+  <!-- Compensate for sticky header when jumping to anchors -->
+<!-- WhatsApp API link: troque o número (phone) e a mensagem (text) conforme necessário -->
+<a href="https://api.whatsapp.com/send?phone=5511999999999&text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20consultor" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#221c11] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+  <span class="truncate">Fale com um Consultor</span>
+</a>
+</div>
+<div class="lg:hidden">
+<button id="menu-toggle" aria-expanded="false" class="text-white p-2">
+  <span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+</div>
+</div>
+<!-- Mobile nav (hidden by default; visible when body[data-menu-open="true"]) -->
+<div class="mobile-nav lg:hidden bg-[#221c11] text-white">
+  <div class="nav-links max-w-[960px] mx-auto px-4 sm:px-10 md:px-20 lg:px-40">
+      <a class="block py-2 text-white font-medium" href="#inicio">INÍCIO</a>
+      <a class="block py-2 text-white font-medium" href="#especialidades">NOSSAS ESPECIALIDADES</a>
+      <a class="block py-2 text-white font-medium" href="#servicos">SERVIÇOS</a>
+      <a class="block py-2 text-white font-medium" href="#contato">CONTATO</a>
+  </div>
+</div>
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<main class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12 sm:gap-16 md:gap-20">
+<!-- HeroSection -->
+<section id="inicio" class="@container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat bg-hero @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10" data-alt="Abstract image with dark tones and a subtle golden light glow">
+<div class="flex flex-col gap-2 text-left max-w-2xl">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                    Transforme seus planos em conquistas financeiras.
+                                </h1>
+<h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                                    Soluções sob medida em crédito, investimento e consultoria.
+                                </h2>
+</div>
+<a href="#especialidades" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-[#221c11] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-opacity-90 transition-opacity" role="button">
+  <span class="truncate">Simule Agora</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Seção de Especialidades (movida para logo após o Hero) -->
+<section id="especialidades" class="px-4 sm:px-10 md:px-20 lg:px-40 py-12">
+  <div class="max-w-[960px] mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-8 text-center">Nossas Especialidades</h2>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Card 1 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/1-financiamento-de-veiculos.png" alt="Financiamento de veículos" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Financiamento de veículos</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Aqui você tem melhores condições e planos flexíveis de pagamentos.</p>
+        <a href="/lp/veiculos" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/2-consorcio.png" alt="Consórcio" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Consórcio</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Conquiste seus objetivos de forma planejada e com parcelas acessíveis.</p>
+        <a href="/lp/consorcio/" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/3-emprestimo-com-garantia-do-saque-aniversario-fgts.png" alt="Empréstimo FGTS" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Empréstimo com Garantia do Saque Aniversário FGTS</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Antecipe até 10 parcelas do seu Saque aniversário FGTS.</p>
+        <a href="/lp/fgts/" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/4-emprestimo-consignado-inss.png" alt="Empréstimo Consignado INSS" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Empréstimo Consignado INSS</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Aqui você tem crédito para retomar seus planos.</p>
+        <a href="/lp/consignado-inss/" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/5-emprestimo-consignado-para-servidores-publicos.png" alt="Empréstimo Consignado Servidores" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Empréstimo Consignado para Servidores Públicos</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Aqui você tem oportunidades exclusivas para o empréstimo consignado.</p>
+        <a href="/lp/consignado-publico/" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-xl border border-[#675532]">
+        <img src="assets/6-emprestimo-com-garantia-de-imovel.png" alt="Empréstimo com Garantia de Imóvel" class="h-16 mb-4" width="64" height="64" loading="lazy">
+        <h3 class="text-lg font-bold text-[#0a2a43] dark:text-white mb-2">Empréstimo com Garantia de Imóvel</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Uma parceria para que você tenha crédito utilizando seu imóvel como garantia.</p>
+        <a href="/lp/garantia-imovel/" class="bg-primary text-[#221c11] font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          Saiba mais
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Stats / About Section -->
+<section class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#675532]">
+<p class="text-white text-base font-medium leading-normal">Anos de experiência</p>
+<p class="text-primary tracking-light text-2xl font-bold leading-tight">+10</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#675532]">
+<p class="text-white text-base font-medium leading-normal">Clientes atendidos</p>
+<p class="text-primary tracking-light text-2xl font-bold leading-tight">+5.000</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-[#675532]">
+<p class="text-white text-base font-medium leading-normal">Transparência</p>
+<p class="text-primary tracking-light text-2xl font-bold leading-tight">100%</p>
+</div>
+</section>
+<!-- Financial Solutions Section -->
+<section>
+<h2 id="servicos" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"><a href="#servicos" class="hover:underline">Soluções Financeiras Sob Medida Para Você</a></h2>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-card-1" data-alt="Professional man in a suit reviewing documents"></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Empréstimo Pessoal</p>
+<p class="text-[#c9b792] text-sm font-normal leading-normal">Crédito rápido e flexível para realizar seus sonhos.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-card-2" data-alt="Construction worker smiling at a job site"></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Empréstimo Trabalhador</p>
+<p class="text-[#c9b792] text-sm font-normal leading-normal">Condições especiais para você que trabalha com carteira assinada.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-card-3" data-alt="Side view of a modern luxury car"></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Financiamento de Veículos</p>
+<p class="text-[#c9b792] text-sm font-normal leading-normal">As melhores taxas para você comprar ou trocar de carro.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-card-4" data-alt="Stock market chart on a computer screen"></div>
+<div>
+<p id="investimentos" class="text-white text-base font-medium leading-normal">Investimentos Sob Medida</p>
+<p class="text-[#c9b792] text-sm font-normal leading-normal">Potencialize seu patrimônio com as melhores oportunidades.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-card-5" data-alt="Financial advisor meeting with a client"></div>
+<div>
+<p id="consultoria" class="text-white text-base font-medium leading-normal">SERVIÇOS</p>
+<p class="text-[#c9b792] text-sm font-normal leading-normal">Planejamento financeiro com especialistas dedicados.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<!-- (removida — seção movida para cima do bloco de Stats / About) -->
+<!-- Testimonials Section -->
+<section>
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 text-center">O que nossos clientes dizem</h2>
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col items-center text-center p-8 rounded-lg border border-[#675532] bg-[#2a2416]">
+<img class="w-20 h-20 rounded-full mb-4 object-cover" data-alt="Portrait of a satisfied male client" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf7b0v445MnrREKilwH6U1-UdaHUlz9WWSy93PRsHC67fTOrynJMBjTUkRLmJqxF-2CmjzlFk2vTP6sMGKrq63ZaygBl-c3oXsQAeCbM-SEd4heLWKOCTYtNqb0i1djD00WqRr_cmojbpuSn1_KPFSwLgnqVTLJPZIGPnINRgAqdJx5gqC-6iKPk5A8OOFDtprefBkAepaj5Z3HCvzVubnSJrb0Sk9VsBWDOlgctfzQLjtU-MZqYRGNsa8GZxgjZ0sTM1oN-mbsyI"/>
+<blockquote class="text-white italic">"A consultoria da Nicholas Souza Financeira foi um divisor de águas na minha vida financeira. Profissionalismo e resultados incríveis!"</blockquote>
+<p class="text-primary font-bold mt-4">- João Pereira</p>
+</div>
+<div class="flex flex-col items-center text-center p-8 rounded-lg border border-[#675532] bg-[#2a2416]">
+<img class="w-20 h-20 rounded-full mb-4 object-cover" data-alt="Portrait of a satisfied female client" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk70vvEwp3R0MalGWeGfqEt6UE3RZzaPEDigLTUzNBqg9WrYAa1XTS4JO4uHo0klq7yMRreZcgwCaabgWMyuYmq5WDhIouzE-1VVLx8OLnu6n20MwmOw7_Kw5c7z4ky-0n04OkR9XEX21Q6eEkjo7pb22ag7PHU3nxfkCTB5jFcFxe8f22oQWXQQML0Ku5a-8zUNOaEfrskw4jSbY_pnhF9gsgZMouW3eBoXYgq-qVu7C12LrzSlU6oJRkivkok-k8xS4VXKb7cXI"/>
+<blockquote class="text-white italic">"Consegui o financiamento do meu carro com taxas excelentes e um processo super rápido. Recomendo de olhos fechados!"</blockquote>
+<p class="text-primary font-bold mt-4">- Maria Almeida</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section>
+<h2 id="contato" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Entre em Contato</h2>
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+<form class="flex flex-col gap-4">
+<input class="w-full bg-[#2a2416] border border-[#675532] rounded-lg p-3 text-white placeholder-[#c9b792] focus:ring-primary focus:border-primary" placeholder="Nome" type="text"/>
+<input class="w-full bg-[#2a2416] border border-[#675532] rounded-lg p-3 text-white placeholder-[#c9b792] focus:ring-primary focus:border-primary" placeholder="E-mail" type="email"/>
+<textarea class="w-full bg-[#2a2416] border border-[#675532] rounded-lg p-3 text-white placeholder-[#c9b792] focus:ring-primary focus:border-primary" placeholder="Mensagem" rows="5"></textarea>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-[#221c11] text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+<span class="truncate">Enviar Mensagem</span>
+</button>
+</form>
+<div class="flex flex-col gap-4 text-white">
+<div>
+<h3 class="font-bold text-lg mb-2">Informações de Contato</h3>
+<p class="text-[#c9b792] flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">phone</span> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+<p class="text-[#c9b792] flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">mail</span> contato@nsfinanceira.com</p>
+<p class="text-[#c9b792] flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">location_on</span> Av. Paulista, 10.000 - São Paulo, SP</p>
+</div>
+<div class="w-full h-48 rounded-lg overflow-hidden border border-[#675532]">
+  <iframe
+    title="Mapa — Av. Paulista, São Paulo"
+    aria-label="Mapa mostrando Av. Paulista, São Paulo"
+    class="w-full h-full"
+    loading="lazy"
+    class="map-iframe"
+    src="https://maps.google.com/maps?q=Av.+Paulista,+Sao+Paulo&hl=pt-BR&z=15&output=embed">
+  </iframe>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex justify-center py-5 mt-10">
+<div class="layout-content-container w-full max-w-[960px]">
+<footer class="border-t border-solid border-t-[#483c23] pt-8 pb-4 px-4 sm:px-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<div class="flex items-center gap-3 text-white mb-4">
+  <a href="#" class="flex items-center gap-3" aria-label="Ir para início">
+  <img src="assets/ns-logo.png" alt="NS Financeira" class="h-8 w-auto sm:h-6" width="160" height="32" loading="lazy" />
+    <h3 class="text-white text-base font-bold ml-2">NS Financeira</h3>
+  </a>
+</div>
+<p class="text-[#c9b792] text-sm">Transformando planos e sonhos em conquistas.</p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Links Rápidos</h4>
+<ul class="space-y-2">
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="#inicio">Início</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="#servicos">Soluções</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="/lp/consorcio/">Consórcio</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="/lp/fgts/">Empréstimo FGTS</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="/lp/garantia-imovel/">Garantia de Imóvel</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="#contato">Contato</a></li>
+<li><a class="text-[#c9b792] text-sm hover:text-primary transition-colors" href="#">Política de Privacidade</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Redes Sociais</h4>
+<div class="flex gap-4 items-center">
+  <a class="text-[#c9b792] hover:text-primary transition-colors" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+    <svg aria-hidden="true" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 12C22 6.477 17.523 2 12 2S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89H8.04v-2.89h2.398V9.92c0-2.366 1.404-3.668 3.553-3.668 1.03 0 2.106.184 2.106.184v2.312h-1.184c-1.166 0-1.528.724-1.528 1.467v1.754h2.6l-.416 2.89h-2.184v6.989C18.343 21.128 22 16.99 22 12z"/>
+    </svg>
+  </a>
+  <a class="text-[#c9b792] hover:text-primary transition-colors" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+    <svg aria-hidden="true" class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="p-1 rounded-md text-primary hover:opacity-90 transition-colors" href="https://api.whatsapp.com/send?phone=5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+    <img src="assets/whatsapp.png" alt="WhatsApp — NS Financeira" class="w-6 h-6 object-contain" width="24" height="24" loading="lazy" />
+  </a>
+</div>
+</div>
+</div>
+<div class="text-center text-[#675532] text-xs mt-10 border-t border-[#483c23] pt-4">
+                        © 2025 Nicholas Souza Financeira. Todos os direitos reservados.
+                    </div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+<script src="js/main.js" defer></script>
+</body></html>

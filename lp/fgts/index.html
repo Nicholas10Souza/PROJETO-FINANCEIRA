@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador — Empréstimo FGTS | NS Financeira</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="../../styles/styles.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col">
+  <header class="w-full bg-[#221c11]/90 text-white py-4 px-6">
+    <div class="max-w-[960px] mx-auto flex items-center justify-between">
+      <a href="../../index.html" class="flex items-center gap-3">
+        <img src="../../assets/ns-logo.png" alt="NS Financeira" class="h-8 w-auto" width="160" height="32" loading="lazy" />
+        <span class="text-white font-bold">NS Financeira</span>
+      </a>
+      <a href="../../index.html" class="text-[#c9b792] hover:text-primary">Voltar ao site</a>
+    </div>
+  </header>
+  <main class="flex-1 p-6 flex justify-center items-start">
+    <div class="sim-card w-full bg-white dark:bg-[#2a2416] rounded-lg shadow-md p-6 sm:p-8 border border-[#675532]">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Simulador — Empréstimo com Garantia do Saque-Aniversário (FGTS)</h1>
+      <p class="text-[#c9b792] mb-6">Estime o valor que pode ser liberado com base no seu saldo disponível do FGTS.</p>
+
+      <div class="sim-summary fade-in" id="summaryBox">
+        <div class="totals">
+          <div class="label text-sm text-[#c9b792]">Valor liberado</div>
+          <div class="value" id="summaryBoxLiberado">—</div>
+        </div>
+        <div class="totals">
+          <div class="label text-sm text-[#c9b792]">Parcela estimada</div>
+          <div class="value" id="summaryBoxParcela">—</div>
+        </div>
+      </div>
+
+      <form id="fgtsForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <label class="flex flex-col text-white">Saldo disponível (R$)
+          <input id="saldo" type="number" step="0.01" value="20000" class="sim-input mt-1" />
+        </label>
+        <label class="flex flex-col text-white">Percentual a utilizar (%)
+          <input id="percent" type="number" step="0.1" value="80" class="sim-input mt-1" />
+        </label>
+        <label class="flex flex-col text-white">Prazo (meses)
+          <input id="months" type="number" value="36" class="sim-input mt-1" />
+        </label>
+        <label class="flex flex-col text-white">Taxa anual (% a.a.)
+          <input id="rate" type="number" step="0.01" value="9" class="sim-input mt-1" />
+        </label>
+      </form>
+
+      <div class="flex gap-3 mb-6 sim-actions">
+        <button id="calc" class="sim-btn sim-primary">Calcular</button>
+        <button id="clear" class="sim-btn sim-secondary">Limpar</button>
+        <button id="send" class="sim-btn sim-whats ml-auto">Enviar por WhatsApp</button>
+      </div>
+
+      <div id="output" class="text-white">
+        <p>Valor liberado estimado: <strong id="liberado">—</strong></p>
+        <p>Parcela mensal (estimada): <strong id="parcela">—</strong></p>
+      </div>
+    </div>
+  </main>
+  <footer class="py-6 text-center text-[#675532]">© 2025 NS Financeira</footer>
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

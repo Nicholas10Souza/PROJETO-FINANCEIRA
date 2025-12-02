@@ -1,0 +1,208 @@
+/*
+  styles/styles.css
+  ------------------
+  Reorganizado como sistema de design (design system)
+
+  Objetivos atingidos:
+  - Variáveis em :root para cores, tipografia, espaçamentos, bordas
+  - Estilos globais base (body, headings, links)
+  - Componentes reutilizáveis: botões, inputs, cards, summary, tabela de amortização
+  - Bloco final com ajustes específicos por simulador (scoped via classes .lp-*)
+
+  NOTA: Mantive todas as classes existentes usadas por HTML/JS (`.sim-card`, `.sim-input`,
+  `.sim-summary`, `.amort-table`, `.income-badge`, etc.). Alterações foram apenas de CSS
+  (substituição por variáveis e reorganização). Não alterei HTML ou JS.
+*/
+
+/* ====== Design system: variáveis globais ====== */
+:root{
+  /* Colors */
+  --color-primary: #eca413;        /* amarelo principal */
+  --color-primary-2: #f0b93a;     /* variação */
+  --color-bg-light: #f8f7f6;
+  --color-bg-dark: #221c10;
+  --color-surface-01: rgba(34,28,17,0.95);
+  --color-text: #ffffff;
+  --color-muted: #c9b792;
+  --color-border: rgba(103,85,50,0.15);
+  --color-border-strong: rgba(103,85,50,0.2);
+  --color-amort-odd: rgba(255,255,255,0.02);
+
+  /* Typography */
+  --fs-xxs: 0.6875rem; /* 11px */
+  --fs-xs: 0.75rem;    /* 12px */
+  --fs-sm: 0.875rem;   /* 14px */
+  --fs-base: 1rem;     /* 16px */
+  --fs-lg: 1.125rem;   /* 18px */
+  --fs-xl: 1.5rem;     /* 24px */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* Spacing scale */
+  --space-xxs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+
+  /* Radii & borders */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem;   /* 8px */
+  --radius-lg: 0.75rem;  /* 12px */
+  --border-width: 1px;
+
+  /* Component tokens */
+  --card-padding: var(--space-lg);
+  --card-radius: var(--radius-lg);
+  --btn-radius: var(--radius-sm);
+  --input-radius: var(--radius-md);
+
+  /* Shadows */
+  --shadow-soft: 0 6px 18px rgba(0,0,0,0.12);
+  --shadow-strong: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+/* ====== Utility aliases (para compatibilidade com markup atual) ====== */
+.bg-primary { background-color: var(--color-primary) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.border-primary { border-color: var(--color-primary) !important; }
+.bg-background-light { background-color: var(--color-bg-light) !important; }
+.bg-background-dark { background-color: var(--color-bg-dark) !important; }
+.map-iframe { border: 0; }
+
+/* Material icons helper (mantido) */
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+/* Compensate for sticky header when jumping to anchors */
+html { scroll-padding-top: 4.5rem; }
+
+/* ====== Global base styles ====== */
+body { font-family: var(--font-family, "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial); color: var(--color-text); background-color: var(--color-bg-light); }
+a { color: var(--color-primary); }
+h1,h2,h3,h4,h5 { margin: 0 0 var(--space-sm) 0; }
+
+/* ====== Layout / small helpers ====== */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 1023px) {
+  .mobile-nav { display: none; }
+  body[data-menu-open="true"] .mobile-nav { display: block; }
+  .mobile-nav .nav-links { display:flex; flex-direction:column; gap:var(--space-xs); padding: var(--space-sm); }
+  .mobile-nav .nav-links a { color: var(--color-text); text-decoration:none; padding: var(--space-xs) 0; }
+}
+
+/* ====== Components: Cards, Inputs, Buttons ====== */
+.card { background: linear-gradient(180deg, var(--color-surface-01), rgba(34,28,17,0.92)); border-radius: var(--card-radius); padding: var(--card-padding); box-shadow: var(--shadow-strong); border: var(--border-width) solid var(--color-border); }
+
+/* Keep `.sim-card` for backward compatibility with markup */
+.sim-card { max-width: 900px; margin: 0 auto; border-radius: var(--card-radius); padding: var(--card-padding); background: linear-gradient(180deg, rgba(34,28,17,0.85), rgba(34,28,17,0.95)); box-shadow: var(--shadow-strong); border: var(--border-width) solid var(--color-border); }
+.sim-card h1, .sim-card p { color: var(--color-primary); }
+
+/* Inputs */
+.input, .sim-input, input[type="text"], input[type="number"], textarea { width:100%; padding: .6rem .75rem; border-radius: var(--input-radius); border: var(--border-width) solid var(--color-border); background: rgba(42,36,22,0.4); color: var(--color-text); outline: none; }
+.input:focus, .sim-input:focus, input:focus, textarea:focus { box-shadow: 0 0 0 4px rgba(236,164,19,0.12); border-color: var(--color-primary); }
+
+/* Buttons */
+.btn { display:inline-flex; align-items:center; justify-content:center; padding: var(--space-xs) var(--space-md); border-radius: var(--btn-radius); font-weight: var(--fw-bold); cursor:pointer; border: var(--border-width) solid transparent; min-height: 2.5rem; font-size: var(--fs-sm); line-height: 1; text-decoration: none; transition: background-color .14s ease, color .14s ease, box-shadow .14s ease, transform .12s ease; }
+
+/* Mapear classes antigas para o novo padrão sem quebrar o markup */
+.sim-btn { padding: var(--space-xs) var(--space-md); border-radius: var(--btn-radius); min-height: 2.5rem; font-size: var(--fs-sm); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; border: var(--border-width) solid transparent; }
+
+.btn--primary, .sim-primary { background: linear-gradient(180deg, var(--color-primary-2), var(--color-primary)); color: var(--color-bg-dark); box-shadow: var(--shadow-soft); border-color: transparent; }
+.btn--secondary, .sim-secondary { background: transparent; border: var(--border-width) solid var(--color-border-strong); color: var(--color-muted); }
+.btn--whats, .sim-whats { background: linear-gradient(180deg, var(--color-primary-2), var(--color-primary)); color: var(--color-bg-dark); }
+.sim-actions { display:flex; gap: var(--space-sm); align-items:center; }
+
+/* Hover / focus states (light, non-invasive) */
+.btn--primary:hover, .sim-primary:hover, .btn--whats:hover, .sim-whats:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(236,164,19,0.12); }
+.btn--secondary:hover, .sim-secondary:hover { background: rgba(255,255,255,0.02); transform: translateY(-1px); }
+.btn:focus, .sim-btn:focus, .btn:active, .sim-btn:active { outline: none; box-shadow: 0 0 0 4px rgba(236,164,19,0.12); }
+
+/* Garantir cor textual consistente quando houver regras conflitantes */
+button.sim-primary, a.btn--primary, .sim-primary { color: var(--color-bg-dark) !important; }
+button.sim-whats, a.btn--whats, .sim-whats { color: var(--color-bg-dark) !important; }
+button.sim-secondary, a.btn--secondary, .sim-secondary { color: var(--color-muted) !important; }
+
+/* Caso existam botões genéricos sem classe específica, dar um estilo neutro */
+.btn-neutral { background: transparent; color: var(--color-text); border-color: var(--color-border); }
+
+/* ====== Forçar padronização para botões dentro dos simuladores ====== */
+/* Aplica o mesmo padrão visual a botões que não usem as classes `.btn`/`.sim-btn` */
+.sim-card button,
+.sim-actions button,
+.lp-consorcio button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--btn-radius);
+  min-height: 2.5rem;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  border: var(--border-width) solid transparent;
+  transition: background-color .14s ease, color .14s ease, box-shadow .14s ease, transform .12s ease;
+}
+
+/* Ajustes específicos para página Consórcio (corrigir cores textuais conflitantes) */
+.lp-consorcio button.bg-primary,
+.lp-consorcio .bg-primary {
+  background-color: var(--color-primary) !important;
+  color: var(--color-bg-dark) !important; /* seguir padrão: texto escuro em botões primários */
+}
+.lp-consorcio button#whats {
+  color: var(--color-bg-dark) !important;
+}
+.lp-consorcio button[aria-pressed],
+.lp-consorcio button.bg-transparent,
+.lp-consorcio .bg-transparent {
+  color: var(--color-muted) !important;
+}
+
+/* Hover / focus for generic buttons inside simulators */
+.sim-card button:hover, .sim-actions button:hover, .lp-consorcio button:hover { transform: translateY(-1px); }
+
+
+/* Summary box */
+.sim-summary { background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); padding: .75rem; border-radius: .5rem; border: var(--border-width) solid rgba(103,85,50,0.06); display:flex; gap:1rem; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+.sim-summary .totals { display:flex; flex-direction:column; gap:.25rem; }
+.sim-summary .totals .value { font-weight:800; color:var(--color-text); }
+
+/* Income badge */
+.income-badge { padding:.25rem .5rem; border-radius: var(--radius-sm); font-weight:700; font-size: .875rem; }
+.income-badge.good { background:#0f5132; color:#a7f3d0; }
+.income-badge.warn { background:#7a5326; color:#fff4e6; }
+.income-badge.danger { background:#5b1414; color:#ffdede; }
+
+/* ====== Amortization table (reusable) ====== */
+.amort-table { font-size: .9rem; color: var(--color-text); border-radius: .5rem; overflow:hidden; }
+.amort-table .row { display:grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; padding: .5rem .75rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.amort-table .row.header { font-weight:700; color: var(--color-muted); position: sticky; top: 0; background: rgba(34,28,17,0.92); z-index:2; }
+.amort-table .row:nth-child(odd) { background: var(--color-amort-odd); }
+.amort-table .cell { text-align:right; }
+@media (max-width: 640px) { .amort-table .row { grid-template-columns: 1fr 1fr; } }
+
+/* Small animation */
+.fade-in { animation: fadeIn .28s ease both; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to { opacity:1; transform:none; } }
+
+/* Footer helpers */
+footer .flex a { padding: .375rem; border-radius: .375rem; display:inline-flex; align-items:center; justify-content:center; }
+
+/* ====== Background images (moved from inline) ====== */
+.bg-hero { background-image: linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8F_4644JTRv3A4TiPb1xByxuxmcl0HpYagpcR3xEINEnqrdjOB3rpgVlPS3b7vPLxswUaC8g-rL4AWTHeeaZAVKHoXOumkGZksUmsFXhqJYUi2TxVrFwymC78XEIokChPFbZno1JHXS6JInfCdrcnOAqtTTQfVvkg65UKlXFIAYCTRPF08XfrdF4aqbvNX5cpyoGDe4tfQfNJl0HfGPRi-cYSk7aHf65Ox7FgE7ffbeqw5STQVkzKDwKnau2WtiL7Z4fcLEZYioE"); }
+.bg-card-1 { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiUGwbM2Eyq30jEjYhVxjGRBYKNrUPeeZ5lyZVUFzvQ2c6EMl2RO4nYNySKAEvQbM6tCuZEigosLlpaI8Q0cR3V7EChP9On-ZepOiyZo8Ziv8edu59k0WOlpAiHpp8IQGhQ2eDjQlOJBOch0SIecRXJWQXiMcMCrV47CWnAet__CWE0lY5BsTI4WSv1X2SJWueUnk8M6kxD2CxRz80G8XxiZB2WPrXqN0WtHmuhhB7s_Wi8KQ97syDcdxDW_6bzUse5rsXBzcamtA"); }
+.bg-card-2 { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrXRO_5sgtp5HoR3KH22h1oT6Hxb3ILd46vM7MCR9oA3yjb5UdR7Mv-iiDM5KbHiDjSgcnhnFeLGYYqTPMOEGypZMVNYzzZvMtxaJ9nlr4F6ljI-XsaTz9i1NrZB7BZXZsyvTVzMca7POJ_22DFIk2kwTK_XOYttNhE9HScCBSrIpSrWksiTSzukI_PiD4xEWCuVlKXrEuNrfkfcJX374uK8smGf2RTPPmirZYa3FtE0ybpjtuqNgxgS5dnokLi3cX0WLm3amOzQ4"); }
+.bg-card-3 { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAj22sNsK0AQcnpzLs3-3S1gz6WBSAG4yHW1Ug5CiOiD3W3uqhrokjKcg_zb6yS0nXYO9uM3R8uViQTWGuAICHwcFVC1LB44dOqY0AQzThploTjv04L66RfH6HOdW5XvsKl15aBafGjfhIICTEs6J6sDkvElkNkckdemK31NlsiLz4mjIiEs3E7wMqawpraDGLxSkxG_woT3YsIgEOxc9Dm_9sKg7DRwVW0GuW8CRJhuw3kF0Mju5e8vw5bmeMXv3wCXyr3bqAaew"); }
+.bg-card-4 { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRfNC7KoSHnft30xCAnxsCAe9ERvKEhZo1L0KLWG77JHGgr5UG5HpDplxUP65WWgyxVKlB_wgKyvPKQrirk70zIm8XmDZiNGQN6pRNVdfjYh9BciOtOxvEw3y6kOJ0PGANplcsaqWykXwk0ie1Mu91asWfuRdeM-Rb4U22wLaLStLBJVouUXdQKgrqz709np5B1hbrFUlxlUQg2Hi0Z_9eC20Igpvhl1hC6JavMA0I2z1OusAMCkWvmm48JSa_68FfgLWBoT6VnBY"); }
+.bg-card-5 { background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCgSdc3Ct-_MWLzdDC4_NN-GvSgq8OnZq_1ewcLI8pIQxpmz3tGbKo_Y3s4Y7lX-ZK83vtl1bdkcTNOdfyd5iG6hAWu3ClDVyl-xC9kfAgOrW1hpgJDEI1yH-lH6_TJGiG3NKcFYX66yE4YJ6HIrbt8WoMHp6vJ8uLNh8jnJUUIDLqkvYrzvi6hWqQYexZ3ZyQZ9LJ0HWBipm7FC2zFVqFiouzA8fEKT30on009YGmsR_cNo3X14ysUUFUWAxUBfhnLM19gQx5rgJA"); }
+.bg-hero, .bg-card-1, .bg-card-2, .bg-card-3, .bg-card-4, .bg-card-5 { background-size: cover; background-position: center; background-repeat: no-repeat; }
+
+/* ====== Simulator specific adjustments (scoped per page) ====== */
+.lp-consorcio .sim-card { max-width: 820px; }
+.lp-veiculos .sim-card { max-width: 760px; }
+
+/* End of styles/styles.css */
+
+
